@@ -10,6 +10,14 @@ There easiest way to install `HAPPE` is to use pip3.
 pip3 install HAPPE
 ```
 
+or you can clone the project to your local directory and installing it with:
+
+```sh
+python3 setup.py install --record log.txt
+#if u want to uninstall the package:
+#cat log.txt | xargs rm -rf
+```
+
 then you should have the  `HAPPE` command available.
 ```sh
 $ HAPPE -h
