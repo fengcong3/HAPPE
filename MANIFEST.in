@@ -1,0 +1,6 @@
+include README.md
+global-exclude *.pyc
+recursive-include HAPPE *pyx
+recursive-include HAPPE *pxd
+recursive-include HAPPE *.py
+prune  test
