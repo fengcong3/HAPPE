@@ -45,6 +45,9 @@ optional arguments:
   -s SNPLIST, --snplist SNPLIST
                         snp id list(format:chr_pos). if u use this option , u
                         cant use -r option.[optional]
+  -w TREEWIDTH, --treewidth TREEWIDTH
+                        How many columns do you want to occupy for this tree
+                        topology.(default=1000)[optional]
   -i INF, --inf INF     the information of each sample.[required]
   -c COLOR, --color COLOR
                         the color of each sample.[required]
@@ -52,7 +55,7 @@ optional arguments:
                         more information about SNP.[optional]
   -R REF, --Ref REF     change Reference and color system.[optional]
   -F FUNCANN, --FuncAnn FUNCANN
-                        functional annotation.[optional]
+                        functional annotation file.[optional]
   -f, --functional      only functional SNP
   -x, --coding          only coding region SNP
   -n, --noncoding       only noncoding region SNP
@@ -98,6 +101,8 @@ mosdepth -f ref.fa -Q 0 sample1/sample1.Q0  path/to/sample1.bam
 "-r REGION", optional parameter, the genomic region to be displayed, format: chromosome: start-end.
 
 "-s VARIANTLIST", optional parameter, the list of variant IDs you need to keep, using this parameter you cannot use the -r parameter.
+
+"-w TREEWIDTH", optional parameter, the width of the tree topology.
 
 "-i INFORMATION", optional parameter, additional sample information, the first column must be the sample ID.
 

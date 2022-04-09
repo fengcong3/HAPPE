@@ -60,6 +60,8 @@ def main1():
                             help="if u wana plot a subset of --gzvcf, u can use this option. if u use this option , ucant use -s option[optional]")
     cmdparser.add_argument("-s","--snplist", dest="snplist",type=str,required=False,
                             help="snp id list(format:chr_pos). if u use this option , u cant use -r option.[optional]")
+    cmdparser.add_argument("-w","--treewidth", dest="treewidth",type=str,required=False,
+                            help="How many columns do you want to occupy for this tree topology.(default=1000)[optional]")
     cmdparser.add_argument("-i","--inf", dest="inf",type=str, required=True, 
                             help="the information  of each sample.[required]")
     cmdparser.add_argument("-c","--color", dest="color",type=str, required=True,
@@ -180,6 +182,9 @@ def main1():
     functional = args.functional
     coding = args.coding
     noncoding = args.noncoding
+
+    #args.treewidth
+    treewidth = args.treewidth
     
     ###########################################################################################
     # keep and filter snp
@@ -292,8 +297,8 @@ def main1():
     logger.info("plot tree to excel file.")
     ret = os.system("""
     #eg. python3 tree2excel_v2.py -c color_file -o out.xlsx -i snp_info_row_num  out.newick > out.maxd_order
-    %s %s -c %s  -o %s.tree.xlsx -i %d %s.newick > %s.maxd_order
-    """%(python3 , tree_py , color,  output_prefix , snp_info_row_num , output_prefix , output_prefix)
+    %s %s -c %s  -o %s.tree.xlsx -i %d %s %s.newick > %s.maxd_order
+    """%(python3 , tree_py , color,  output_prefix , snp_info_row_num , " -w %s "%(treewidth) if treewidth else "" ,output_prefix , output_prefix)
     )
 
     check_ret(ret,"plot tree to excel file")
