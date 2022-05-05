@@ -120,6 +120,7 @@ def SNP_ANN_of_Gene_Structure(INFO_field):
                     "|")  # 第一个|后即alle的类别信息,第7列为feature id
                 annotation = anno_inf[1]
                 feature_id = anno_inf[6]
+                feature_type= anno_inf[5]
                 cxx = anno_inf[9]
                 pxx = anno_inf[10]
                 if feature_id not in anno_dic:
@@ -131,7 +132,8 @@ def SNP_ANN_of_Gene_Structure(INFO_field):
                     anno_dic[feature_id][0].append('intergenic_region')
                     anno_dic[feature_id][1].add(cxx)
                     anno_dic[feature_id][2].add(pxx)
-                elif feature_id.startswith("Traes") and feature_id[-2] == '.':
+                    #elif feature_id.startswith("Traes") and feature_id[-2] == '.':
+                elif feature_type == "transcript":
                     anno_dic[feature_id][0].append(annotation)
                     anno_dic[feature_id][1].add(cxx)
                     anno_dic[feature_id][2].add(pxx)
