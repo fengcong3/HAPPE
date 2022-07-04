@@ -11,10 +11,10 @@ setuptools.setup(
     ],
 
     name="HAPPE", 
-    version="0.1.1",
+    version="0.1.2",
     author="Cong Feng",
     author_email="congfeng97@gmail.com",
-    description="A pipeline to visualize the haplotype pattern and various information in excel.",
+    description="A tool to visualize the haplotype pattern and various information in excel.",
     long_description=long_description,
     long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),

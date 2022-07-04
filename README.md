@@ -1,6 +1,12 @@
 # HAPPE
 
-A pipeline to visualize the haplotype pattern and various information in excel.
+A tool to visualize the haplotype pattern and various information in excel.
+Please cite this paper when using HAPPE for your publications
+> Cong Feng, Xingwei Wang, Shishi Wu, Weidong Ning, Bo Song, Jianbin Yan, and Shifeng Cheng. 2022. “HAPPE: A Tool for Population Haplotype Analysis and Visualization in Editable Excel Tables.” Frontiers in Plant Science 13 (July): 927407. https://doi.org/10.3389/fpls.2022.927407.
+
+
+![avatar](./Figure_S2.jpg)
+
 
 ## Installing HAPPE
 
