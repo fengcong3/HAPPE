@@ -1,3 +1,4 @@
 build_and_upload.sh
 HAPPE.egg-info/
 build/
+dist/*
