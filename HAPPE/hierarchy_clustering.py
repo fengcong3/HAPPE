@@ -82,6 +82,7 @@ if __name__ == "__main__":
     hclustering = cluster.AgglomerativeClustering(distance_threshold=0, n_clusters=None).fit(pd_df)
     # print(len(clustering.labels_))
     Z = get_linkage_matrix(hclustering)
+    # np.savetxt("linkage.txt",Z,fmt="%.2f")
     tree = hierarchy.to_tree(Z, rd=False)
     newick_str = getNewick(tree, "", tree.dist, col_name )
 
@@ -94,6 +95,7 @@ if __name__ == "__main__":
     #Langfelder P, Zhang B, Horvath S. Defining clusters from a hierarchical cluster tree: the Dynamic Tree Cut package for R[J]. Bioinformatics, 2008, 24(5): 719-720.
     #dymic cut tree
     dist_matrix = sk.metrics.pairwise.pairwise_distances(pd_df, metric='euclidean')
+    # np.savetxt("dist.txt",dist_matrix,fmt="%.2f")
     clusters = dynamicTreeCut.cutreeHybrid(Z, dist_matrix,minClusterSize=1,deepSplit=4)
     
     # print(clusters["labels"])

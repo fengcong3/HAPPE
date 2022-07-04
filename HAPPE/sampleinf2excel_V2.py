@@ -85,7 +85,7 @@ if __name__ == "__main__":
     first_row = True
     for index,sample in enumerate(sample_order):
         merge_range_item = [cell_row * index + start_row+ 1, start_col,cell_row * (index+1)-1  + start_row+ 1,start_col] 
-        if cell_row >1 and first_row and False:
+        if cell_row >1 :#and first_row and False:
             ws.merge_cells(start_row=merge_range_item[0], start_column=merge_range_item[1], 
                 end_row=merge_range_item[2], end_column=merge_range_item[3])
             ws.cell(row=merge_range_item[0],column=merge_range_item[1]).value = sample
@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
         for index1,value in enumerate(info_list):
             merge_range_item1 = [cell_row * index + start_row+ 1, start_col+index1+1, cell_row * (index+1)-1  + start_row+ 1,start_col+index1+1] 
-            if cell_row >1 and first_row and False:
+            if cell_row >1 : #and first_row and False:
                 ws.merge_cells(start_row=merge_range_item1[0], start_column=merge_range_item1[1],
                     end_row=merge_range_item1[2], end_column=merge_range_item1[3])
                 ws.cell(row=merge_range_item1[0],column=merge_range_item1[1]).value = value

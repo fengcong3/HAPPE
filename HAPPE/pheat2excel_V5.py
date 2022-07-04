@@ -250,7 +250,7 @@ if __name__ == "__main__":
     for index,sample in enumerate(sample_order):
         # print(sample)
         merge_range_item = [cell_row * index + start_row+ snp_info_row_num, start_col,cell_row * (index+1)-1 + start_row+ snp_info_row_num,start_col] 
-        if cell_row > 1 and first_row and False:
+        if cell_row > 1 :#and first_row and False:
             ws.merge_cells(start_row=merge_range_item[0], start_column=merge_range_item[1], 
                 end_row=merge_range_item[2], end_column=merge_range_item[3])
             ws.cell(row=merge_range_item[0],column=merge_range_item[1]).value = sample
@@ -270,7 +270,7 @@ if __name__ == "__main__":
 
 
         merge_range_item2 = [cell_row * index + start_row+ snp_info_row_num, start_col+1, cell_row * (index+1)-1  + start_row+ snp_info_row_num,start_col+1] 
-        if cell_row > 1 and first_row and False:
+        if cell_row > 1 :#and first_row and False:
             ws.merge_cells(start_row=merge_range_item2[0], start_column=merge_range_item2[1], 
                 end_row=merge_range_item2[2], end_column=merge_range_item2[3])
             ws.cell(row=merge_range_item2[0],column=merge_range_item2[1]).value = cluster_d[sample] if cluster_d and sample in cluster_d else "NA"
@@ -330,7 +330,7 @@ if __name__ == "__main__":
             else:
                 v = "NA"
 
-            if cell_row > 1 and first_row and False:
+            if cell_row > 1 :#and first_row and False:
                 ws.merge_cells(start_row=merge_range_item1[0], start_column=merge_range_item1[1],
                     end_row=merge_range_item1[2], end_column=merge_range_item1[3])
             

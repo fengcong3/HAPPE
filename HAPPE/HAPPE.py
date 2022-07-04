@@ -192,11 +192,11 @@ def main1():
     if region:
         ret = os.system("""
         #eg. bcftools view -r chr1A:1-100 -S sample.list test.vcf.gz | bgzip -c > out.vcf.gz
-        %s view %s %s %s | %s -c > %s.vcf.gz
+        %s view %s %s %s %s | %s -c > %s.vcf.gz
         %s
         %s
         %s
-        """%( bcftools , "-r %s"%(region) if region else "", "-S %s"%(keep) if keep else "" , gzvcf ,
+        """%( bcftools , "-r %s"%(region) if region else "", "-S %s"%(keep) if keep else "" , "-c 1:alt1" ,gzvcf ,
             bgzip, output_prefix,
             "%s %s %s.vcf.gz | %s -c > %s.vcf.gz.bak && mv %s.vcf.gz.bak %s.vcf.gz" % (
                 python3 ,filter_func_py , output_prefix , bgzip , output_prefix , output_prefix , output_prefix 
@@ -208,7 +208,7 @@ def main1():
             
             "%s %s %s.vcf.gz | %s -c > %s.vcf.gz.bak && mv %s.vcf.gz.bak %s.vcf.gz" % (
                 python3 ,filter_noncod_py , output_prefix , bgzip , output_prefix , output_prefix , output_prefix 
-                ) if noncoding else "",
+                ) if noncoding else ""
             ) 
         )
 
@@ -383,7 +383,7 @@ def main1():
     os.remove("%s.maxd_order"%(output_prefix))
     os.remove("%s.newick"%(output_prefix))
     os.remove("%s.heat"%(output_prefix))
-    os.remove("%s.cluster"%(output_prefix))
+    # os.remove("%s.cluster"%(output_prefix))
     os.remove("%s.heat.start"%(output_prefix))
     os.remove("%s.tree.xlsx"%(output_prefix))
     os.remove("%s.inf.xlsx"%(output_prefix))
