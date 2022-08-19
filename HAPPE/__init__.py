@@ -1,4 +1,4 @@
-from .excel_haplotype import main1
+from .HAPPE import main1
 
 def main():
     main1()
