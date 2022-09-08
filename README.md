@@ -130,17 +130,22 @@ mosdepth -f ref.fa -Q 0 sample1/sample1.Q0  path/to/sample1.bam
 
 ```
 ## example
+The example data covered in the publication is in the `example/` folder.
+
 ```sh
 HAPPE \
 -g config.ini \
--v test.vcf.gz \
--r chr7A:71669854-71670886 \
--i 1000_Inf.txt \
--c 1000.pop.color \
--F FunctionalAnnotation_v1__HCgenes_v1.0.TAB \
--D path/to/depth_data/ \
--f \
--o test
+-v ./data/00.annotated_vcf/SEVIR.592.SNP.ann.allele2.part.vcf.gz \
+-r 5:6847970-6850236 \
+-w 100 \
+-d 20 \
+-i ./data/02.sample_information//sample_inf.tsv \
+-c ./data/02.sample_information//sample.color \
+-D ./data/01.depth \
+-k ./data/02.sample_information//small_example.list \
+-o SEVIR_5G085400v2
+
+
 ## each file of the prameter
 ## -g config.ini
 # [software]
@@ -148,12 +153,12 @@ HAPPE \
 # bcftools=path_to/bcftools
 # tabix=path_to/tabix
 
-## -i 1000_Inf.txt
+## -i ./data/02.sample_information//sample_inf.tsv
 ## Just make sure the first column is the sample name.
 # Sample_ID	... ...
 # sample1   ... ...
 
-## -c 1000.pop.color
+## -c ./data/02.sample_information//sample.color
 ## Just make sure the first column is the sample name and the second column is color code.
 # Sample_ID	color
 # sample1	FF0000
@@ -164,6 +169,6 @@ HAPPE \
 # Gene_name	XXX XXX function ... ...
 # gene1     XXX XXX func1    ... ...
 
-## -D path/to/depth_data/
+## -D ./data/01.depth
 ##Make sure that the files *mosdepth.summary.txt and *per-base.bed.gz are in the directory for each sample in this directory.
 ```
