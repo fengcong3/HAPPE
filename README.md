@@ -78,7 +78,9 @@ optional arguments:
 bgzip=
 bcftools=
 tabix=
+partlen=
 ```
+Because some software cant deal with chromosome bigger than 512Mbp, so we need to split the chromosome into several parts.`partlen` is the file that contains the length of each part. Mainly used for the depth information extraction.
 ## Preparing the vcf file
 
 1. The SNP/INDEL ID must be in the format :`Chromosome_position`.

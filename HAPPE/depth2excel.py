@@ -55,6 +55,8 @@ if __name__ == "__main__":
 
     cmdparser.add_argument("-o","--output", dest="output",type=str, required=True,
                             help="output xlsx file name")
+    cmdparser.add_argument("-p","--partlen", dest="partlen",type=str, required=False,
+                            help="partlen file [optional]")
 
 
     args = cmdparser.parse_args()
@@ -129,7 +131,7 @@ if __name__ == "__main__":
         child2 = subprocess.Popen("""%s %s %s |
             %s %s -r %s -a %s -b %d  -s 
             """%(tabix , args.Depth+"/"+sample+"/" +[n for n in os.listdir(args.Depth+"/"+sample) if n.endswith("per-base.bed.gz")][0] , region,
-                python3 , normaldepth,region,averge_depth,args.cellbp),
+                python3 , normaldepth,region,averge_depth,args.cellbp,args.partlen),
             shell=True,stdout=subprocess.PIPE)
 
         for line in child2.stdout.readlines():

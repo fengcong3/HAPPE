@@ -113,6 +113,7 @@ def main1():
     bgzip = config.get("software","bgzip")
     bcftools = config.get("software","bcftools")
     tabix = config.get("software","tabix")
+    partlen = config.get("software","partlen")
 
 
     #args.gzvcf
@@ -370,9 +371,10 @@ def main1():
         -s  %s\
         -e %s.Haplotype.xlsx \
         -t %s \
-        -o %s.Haplotype.xlsx 
+        -o %s.Haplotype.xlsx \
+        -p %s
         """%(python3, depth2excel, region , args.Depth , output_prefix ,args.Depthbin,
-        nstart, output_prefix,tabix,output_prefix )
+        nstart, output_prefix,tabix,output_prefix,partlen )
         )
         check_ret(ret,"add RDV matrix")
     ###########################################################################################

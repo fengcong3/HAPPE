@@ -11,7 +11,7 @@ setuptools.setup(
     ],
 
     name="HAPPE", 
-    version="0.1.4",
+    version="0.1.5",
     author="Cong Feng",
     author_email="congfeng97@gmail.com",
     description="A tool to visualize the haplotype pattern and various information in excel.",

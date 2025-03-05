@@ -6,7 +6,7 @@ import sys,os
 import argparse
 import subprocess 
 
-part_len="/public/agis/chengshifeng_group/fengcong/WGRS/software/Fc-code/partlen.txt"
+part_len="./partlen.txt"
 
 
 if __name__ == "__main__":
@@ -24,6 +24,9 @@ if __name__ == "__main__":
                             help="step,default : --bin")
     cmdparser.add_argument("-s","--stdin", dest="stdin",action="store_true",
                         help="read data from stdin,ignore depthfile")
+    ## add a new argument to specify the partlen file
+    cmdparser.add_argument("-p","--partlen", dest="partlen",type=str,
+                            help="partlen file")
     
     args = cmdparser.parse_args()
 
