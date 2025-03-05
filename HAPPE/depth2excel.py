@@ -129,9 +129,9 @@ if __name__ == "__main__":
         #     shell=True,stdout=subprocess.PIPE)
         
         child2 = subprocess.Popen("""%s %s %s |
-            %s %s -r %s -a %s -b %d  -s 
+            %s %s -r %s -a %s -b %d  -s  -p %s
             """%(tabix , args.Depth+"/"+sample+"/" +[n for n in os.listdir(args.Depth+"/"+sample) if n.endswith("per-base.bed.gz")][0] , region,
-                python3 , normaldepth,region,averge_depth,args.cellbp,args.partlen),
+                python3 , normaldepth,region,averge_depth, args.cellbp, str(args.partlen)),
             shell=True,stdout=subprocess.PIPE)
 
         for line in child2.stdout.readlines():
